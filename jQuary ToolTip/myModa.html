@@ -1,0 +1,103 @@
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+
+<style>
+
+#myModal {
+  width: 298px; height: 218px;
+  padding: 18px 9px;
+  border-radius: 4px;
+  background: #F48A4D;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  margin: auto;
+  display: none;//none
+
+  opacity: 0;//почему?
+  z-index: 38;
+  text-align: center;
+}
+#stop{
+  //display: inline-block;
+  color: #454545;
+  font-weight: 700;
+  text-decoration: none;
+  user-select: none;
+  padding: .5em 2em;
+  outline: none;
+  border: 2px solid;
+  border-radius: 1px;
+  transition: 0.2s;
+  
+  position:absolute;
+  bottom:10;
+  left:60;
+  
+  
+} 
+#stop:hover { background: rgba(255,255,255,.2); }
+#stop:active { background: white; }
+
+
+</style>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Хуёшко</title>
+<script type="text/javascript" src="jquery-3.0.0.min.js"></script>
+</head>
+
+<body>
+
+ <button id="send">Прислать заявку</button>
+
+<div id="myModal">
+  <p>Контент</p>
+  <input id="stop" type="button" value=" Нажми меня нежно ">
+</div>
+
+
+<script>
+
+  $(document).ready(function(){
+      var send = $("#send"); 
+	  var modal = $("#myModal");
+	  var stop = $("#stop");
+	  var flag = false;
+	  
+	  stop.click(function(event){
+	      event.preventDefault();
+		  flag = false;
+	      hideModal();
+	    }
+	  )
+	  
+	  send.click(function(event){
+	      event.preventDefault();  
+		  showModal();
+		  
+		  flag = true;
+		}
+	  )
+    
+	
+	  let showModal = function() {
+         modal.css("display", "block");
+		 setTimeout(hideModal,5000);
+        };
+	  let hideModal = function() {
+         modal.css("display", "none");
+		 
+		 if(flag){
+		    setTimeout(showModal,1000)
+		 }
+        };
+	
+   }	
+  )
+
+   
+	
+</script>
+
+</body>
+</html>
